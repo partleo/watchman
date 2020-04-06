@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/alarm_component"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        />
+
+    <RelativeLayout
+        android:id="@+id/spinner_background_layout"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        >
+
+        <Spinner
+            android:id="@+id/spinner_ain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="180dp"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/lower_threshold"
+                android:textSize="18sp"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/threshold_low_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:inputType="numberSigned|numberDecimal"
+                android:maxLength="6"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/rounded_edit_text"
+                android:windowSoftInputMode="stateHidden"
+                android:nextFocusDown="@id/threshold_high_edit_text"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/higher_threshold"
+                android:textSize="18sp"
+                android:textColor="@color/colorWhite"
+                android:fontFamily="sans-serif-condensed"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:id="@+id/threshold_high_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:padding="5dp"
+                android:inputType="numberSigned|numberDecimal"
+                android:maxLength="6"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:background="@drawable/rounded_edit_text"
+                android:windowSoftInputMode="stateHidden"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/setup_threshold_button"
+        android:text="@string/setup"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/card_view_background"
+        android:textColor="@color/button_action_color"
+        />
+
+    <Button
+        android:id="@+id/inquiry_threshold_button"
+        android:text="@string/inquiry"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="@drawable/card_view_background"
+        android:textColor="@color/button_action_color"
+        />
+
+</LinearLayout>

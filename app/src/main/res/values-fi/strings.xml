@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_permissions">Ei lupaa lähettää tekstiviestejä!</string>
+    <string name="no_phone_number">Ei puhelin numeroa!</string>
+    <string name="sms_sent">Tekstiviesti lähetetty onnistuneesti</string>
+    <string name="sms_sending_canceled">TEKSTIVIESTIÄ EI LÄHETETTY!</string>
+    <string name="sms_delivered">Tekstiviesti toimitettu onnistuneesti</string>
+    <string name="sms_delivery_canceled">Tekstiviestin toimitus peruutettu!</string>
+
+    <string name="new_password">Uusi salasana</string>
+    <string name="confirm_password_t">Vahvista salasana</string>
+    <string name="modify_password">Vaihda salasana</string>
+
+    <string name="enter_password">Syötä salasana!</string>
+    <string name="enter_phone_number">Syötä puhelinnumero!</string>
+    <string name="confirm_password">Vahvista salasana!</string>
+
+    <string name="password_too_short">Salasana liian lyhyt, salasanan tulee olla tasan nelinumeroinen!</string>
+    <string name="invalid_phone_number">Väärä numero!</string>
+    <string name="passwords_do_not_match">Salasanakentät eivät täsmää!</string>
+
+    <string name="password">Salasana</string>
+    <string name="phone_number">Puhelinnumero</string>
+    <string name="device_number">Laitteen puhelinnumero</string>
+
+    <string name="send">Lähetä</string>
+    <string name="back">Takaisin</string>
+
+    <string name="change_phone_number">Haluatko vaihtaa laitteen numeron?</string>
+    <string name="yes">Kyllä</string>
+    <string name="no">Ei</string>
+
+    <string name="quit_the_app">Haluatko sulkea sovelluksen?</string>
+
+    <string name="card_text_1">Vaihda Salasana</string>
+    <string name="card_text_2">Tila-asetukset</string>
+    <string name="card_text_3">Aseta Aika</string>
+    <string name="card_text_4">Lisää Käyttäjänumero</string>
+    <string name="card_text_5">Authority User Number to access control</string>
+    <string name="card_text_6">Setup Daily Report time</string>
+    <string name="card_text_7">Inquiry DIN Status</string>
+    <string name="card_text_8">Aseta Hälytysrajat</string>
+    <string name="card_text_9">SMS Control Digital Output</string>
+    <string name="card_text_10">Set Server Parameter</string>
+    <string name="card_text_11">Set GPRS APN/USER NAME/PASSWORD</string>
+    <string name="card_text_12">GPRS Online</string>
+    <string name="card_text_13">Delete Historical Data</string>
+    <string name="card_text_14">Clear/Inquiry Pulse Counter Value</string>
+
+    <string name="confirm_send_message">Haluatko varmasti lähettää kysely-tekstiviestin?</string>
+    <string name="confirm_send_message_2">Haluatko varmasti lähettää komento-tekstiviestin?</string>
+
+    <string name="series_number">Sarjanumero</string>
+    <string name="enter_series_number">Syötä sarjanumero!</string>
+
+    <string name="setup">Aseta</string>
+    <string name="inquiry">Päivitä</string>
+    <string name="delete">Poista</string>
+
+    <string name="register">Rekisteröi</string>
+    <string name="arm">Käynnistä</string>
+    <string name="disarm">Sammuta</string>
+
+    <string name="start_date">Aloituspäivä</string>
+    <string name="end_date">Lopetuspäivä</string>
+    <string name="start_time">Aloitusaika</string>
+    <string name="end_time">Lopetusaika</string>
+
+    <string name="access_always">Oikeudet aina</string>
+    <string name="select_number">Laitteen valinta</string>
+
+    <string name="lower_threshold">Alaraja</string>
+    <string name="higher_threshold">Yläraja</string>
+    <string name="enter_channel_number">Syötä kanava numero!</string>
+    <string name="enter_threshold_low">Syötä alaraja!</string>
+    <string name="enter_threshold_high">Syötä yläraja!</string>
+    <string name="threshold_low_too_short">Kynnysarvojen tulee olla tarkalleen 3 numeroisia!</string>
+    <string name="threshold_high_too_short">Kynnysarvojen tulee olla tarkalleen 3 numeroisia!!</string>
+    <string name="incorrect_threshold">Ylempi raja-arvo on oltava korkeampi kuin alarajan!</string>
+
+    <string name="ok">OK</string>
+
+    <string name="armed">Päällä</string>
+    <string name="disarmed">Pois päältä</string>
+
+    <string name="din0">DIN0:</string>
+    <string name="ain0">AIN0:</string>
+    <string name="ain1">AIN1:</string>
+    <string name="ain2">AIN2:</string>
+    <string name="ain3">AIN3:</string>
+    <string name="current_status">Nykyinen tila: %1$s</string>
+    <string name="water">Veden korkeus: %1$s</string>
+    <string name="temp">Lämpötila: %1$s</string>
+    <string name="pressure1">Paine 1: %1$s</string>
+    <string name="pressure2">Paine 2: %1$s</string>
+    <string name="power">Jännite 3P: %1$s</string>
+
+    <string name="update">Päivitä</string>
+    <string name="configuration_options">Asetusvalikko</string>
+
+    <string name="master_password">Anna pääkäyttäjän salasana</string>
+    <string name="no_access_to_configuration">Ei käyttöoikeuksia muihin asetuksiin!</string>
+
+    <string name="full_sms_report">Täysi raportointi</string>
+    <string name="on_duty">Päivystäjä</string>
+    <string name="sms_alarms">Hälytykset</string>
+    <string name="timer_report">Ajastettu raportti</string>
+
+    <string name="alarm_component">Hälytyskomponentti</string>
+    <string-array name="ain_array">
+        <item>\u0020 Lämpötila</item>
+        <item>\u0020 Paine 1</item>
+        <item>\u0020 Paine 2</item>
+    </string-array>
+
+    <string name="date">Päivämäärä</string>
+    <string name="time">Kellonaika</string>
+    <string name="set_time">Aseta aika</string>
+
+    <string name="change_device_number">Vaihda laitteen numero</string>
+
+    <string name="no_status">Ei Statusta</string>
+
+    <string name="delete_number">Haluatko varmasti poistaa numeron: %1$s?</string>
+    <string name="number_deleted">Device phone number deleted</string>
+    <string name="not_phone_number">Virheellinen numero!</string>
+
+    <string name="normal">Normaali</string>
+    <string name="lower">Alhainen</string>
+    <string name="higher">Korkea</string>
+    <string name="full">Täynnä</string>
+
+    <string name="tank_full">Tankki täynnä \u0020</string>
+    <string name="tank_normal">Tankki normaali \u0020</string>
+
+</resources>

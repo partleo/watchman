@@ -1,0 +1,153 @@
+<resources>
+    <string name="app_name" translatable="false">Watchman</string>
+    <string name="app_name_caps" translatable="false">WATCHMAN</string>
+    <string name="brand_name" translatable="false">HUUMtech®</string>
+    <string name="trademark" translatable="false">HUUMtech® is registered trademark of HarMaTek Oy.\n©2020 HarMaTek Oy.</string>
+    <string name="no_permissions">No permission for sending SMS!</string>
+    <string name="no_phone_number">No phone number!</string>
+    <string name="sms_sent">SMS successfully sent</string>
+    <string name="sms_sending_canceled">SMS NOT SENT!</string>
+    <string name="sms_delivered">SMS successfully delivered</string>
+    <string name="sms_delivery_canceled">SMS delivery canceled!</string>
+
+    <string name="new_password">New password</string>
+    <string name="confirm_password_t">Confirm password</string>
+
+    <string name="enter_password">Enter password!</string>
+    <string name="enter_phone_number">Enter phone number!</string>
+    <string name="confirm_password">Confirm password!</string>
+    <string name="modify_password">Modify password</string>
+
+    <string name="password_too_short">Password too short, must be exactly 4 digits!</string>
+    <string name="invalid_phone_number">Invalid number!</string>
+    <string name="passwords_do_not_match">Password fields do not match!</string>
+
+    <string name="password">Password</string>
+    <string name="phone_number">Phone number</string>
+    <string name="device_number">Device phone number</string>
+
+    <string name="send">Send</string>
+    <string name="back">Back</string>
+
+    <string name="change_phone_number">Do you want to change device number?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="quit_the_app">Do you want to quit the app?</string>
+
+    <string name="card_text_1">Modify Password</string>
+    <string name="card_text_2">Status Settings</string>
+    <string name="card_text_3">Set Time</string>
+    <string name="card_text_4">Setup User Number</string>
+    <string name="card_text_5">Authority User Number to access control</string>
+    <string name="card_text_6">Setup Daily Report time</string>
+    <string name="card_text_7">Inquiry DIN Status</string>
+    <string name="card_text_8">Setup  Input’s</string>
+    <string name="card_text_9">SMS Control Digital Output</string>
+    <string name="card_text_10">Set Server Parameter</string>
+    <string name="card_text_11">Set GPRS APN/USER NAME/PASSWORD</string>
+    <string name="card_text_12">GPRS Online</string>
+    <string name="card_text_13">Delete Historical Data</string>
+    <string name="card_text_14">Clear/Inquiry Pulse Counter Value</string>
+
+    <string name="confirm_send_message">Are you sure you want to send a query text message?</string>
+    <string name="confirm_send_message_2">Are you sure you want to send a command text message?</string>
+
+    <string name="series_number">Series Number</string>
+    <string name="enter_series_number">Enter series number!</string>
+
+    <string name="setup">Set up</string>
+    <string name="inquiry">Inquiry</string>
+    <string name="delete">Delete</string>
+
+    <string name="register">Register</string>
+    <string name="arm">Arm</string>
+    <string name="disarm">Disarm</string>
+
+    <string name="start_date">Start day</string>
+    <string name="end_date">End day</string>
+    <string name="start_time">Start time</string>
+    <string name="end_time">End time</string>
+
+    <string name="access_always">Access always</string>
+    <string name="select_number">Device selection</string>
+
+    <string name="lower_threshold">Lower threshold</string>
+    <string name="higher_threshold">Higher threshold</string>
+    <string name="enter_channel_number">Enter channel number!</string>
+    <string name="enter_threshold_low">Enter the lower threshold!</string>
+    <string name="enter_threshold_high">Enter the higher threshold!</string>
+    <string name="threshold_low_too_short">Threshold values should be exactly 3 digits!</string>
+    <string name="threshold_high_too_short">Threshold values should be exactly 3 digits!</string>
+    <string name="incorrect_threshold">The higher threshold must be higher than the lower threshold!</string>
+
+
+    <string name="ok">OK</string>
+
+    <string name="armed">Armed</string>
+    <string name="disarmed">Disarmed</string>
+
+    <string name="status_armed" translatable="false">Armed</string>
+    <string name="status_disarmed" translatable="false">Disarmed</string>
+    <string name="din0">DIN0:</string>
+    <string name="ain0">AIN0:</string>
+    <string name="ain1">AIN1:</string>
+    <string name="ain2">AIN2:</string>
+    <string name="ain3">AIN3:</string>
+    <string name="current_status">Current Status: %1$s</string>
+    <string name="water">Water level: %1$s</string>
+    <string name="temp">Temperature: %1$s</string>
+    <string name="pressure1">Pressure 1: %1$s</string>
+    <string name="pressure2">Pressure 2: %1$s</string>
+    <string name="power">Power 3P: %1$s</string>
+
+    <string name="update">Update</string>
+    <string name="configuration_options">Configuration options</string>
+
+    <string name="master_password">Enter master password</string>
+    <string name="no_access_to_configuration">No permissions to use other settings!</string>
+
+    <string name="full_sms_report">Full SMS Report</string>
+    <string name="on_duty">On Duty</string>
+    <string name="sms_alarms">SMS Alarms</string>
+    <string name="timer_report">Timer report</string>
+
+    <string name="alarm_component">Alarm component</string>
+    <string-array name="ain_array">
+        <item>\u0020 Temperature</item>
+        <item>\u0020 Pressure 1</item>
+        <item>\u0020 Pressure 2</item>
+    </string-array>
+
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="set_time">Set time</string>
+
+    <string name="change_device_number">Change device number</string>
+
+    <string name="no_status_en" translatable="false">No Status</string>
+    <string name="no_status">No Status</string>
+
+    <string name="delete_number">Are you sure you want to delete number: %1$s?</string>
+    <string name="number_deleted">Device phone number deleted</string>
+    <string name="not_phone_number">Invalid number!</string>
+
+    <string name="normal_en" translatable="false">Normal</string>
+    <string name="lower_en" translatable="false">Lower</string>
+    <string name="higher_en" translatable="false">Higher</string>
+    <string name="full_en" translatable="false">Full</string>
+    <string name="normal">Normal</string>
+    <string name="lower">Lower</string>
+    <string name="higher">Higher</string>
+    <string name="full">Full</string>
+
+    <string name="tank_full">Tank full \u0020</string>
+    <string name="tank_normal">Tank normal \u0020</string>
+
+    <string name="tank_full_en" translatable="false">TANK FULL</string>
+    <string name="tank_normal_en" translatable="false">TANK NORMAL</string>
+    <string name="temp_en" translatable="false">TEMP:</string>
+    <string name="pressure1_en" translatable="false">PRESSURE 1:</string>
+    <string name="pressure2_en" translatable="false">PRESSURE 2:</string>
+
+</resources>

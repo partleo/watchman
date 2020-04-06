@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
+
+    <TextView
+        android:text="@string/password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp"
+        android:inputType="number"
+        android:maxLength="4"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/rounded_edit_text"
+        android:windowSoftInputMode="stateHidden"
+        tools:ignore="TextFields" />
+
+    <TextView
+        android:text="@string/device_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/phone_number_input"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp"
+        android:inputType="phone"
+        android:maxLength="15"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/rounded_edit_text"
+        android:windowSoftInputMode="stateHidden"
+        />
+
+    <RelativeLayout
+        android:id="@+id/spinner_background_layout"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_edit_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:inputType="phone"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dropDownWidth="180dp"
+            />
+
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/select_saved_number_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/select_number"
+        android:textSize="18sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:id="@+id/register_button"
+        android:text="@string/register"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/card_view_background"
+        android:textColor="@color/button_action_color"
+        />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:text="@string/delete"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/card_view_background"
+        android:textColor="@color/button_action_color"
+        />
+
+</LinearLayout>

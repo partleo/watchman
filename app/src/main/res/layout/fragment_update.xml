@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <TextView
+        android:id="@+id/armed_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:textColor="@color/colorWhite"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/water"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/water"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_weight="3.1"
+            />
+
+        <Button
+            android:id="@+id/update_din0_status_button"
+            android:text="@string/update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card_view_background"
+            android:textColor="@color/button_action_color"
+            android:layout_weight="0.9"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/temp"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_weight="3"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/pressure_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/pressure1"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_weight="3.1"
+            />
+
+        <Button
+            android:id="@+id/update_ain_status_button"
+            android:text="@string/update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/card_view_background"
+            android:textColor="@color/button_action_color"
+            android:layout_weight="0.9"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/pressure_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/pressure2"
+            android:textSize="18sp"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:layout_weight="3"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/arm_status_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:src="@drawable/harmatek_armed"
+            app:backgroundTint="@color/colorGreen"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/disarm_status_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:src="@drawable/harmatek_disarmed"
+            app:backgroundTint="@color/colorRed"
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/setup_settings_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:src="@drawable/harmatek_plus"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
