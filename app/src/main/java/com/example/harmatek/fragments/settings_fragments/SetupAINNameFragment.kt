@@ -140,10 +140,8 @@ class SetupAINNameFragment: Fragment() {
             if (m.checkPermissions(c)) {
                 message = when {
                     setup == null -> {
-                        "AIN0:Lower2,High5.60;\n" +
-                                "AIN1:Lower100,High102938;\n" +
-                                "AIN2:Lower0,High4.88;\n"
-                        //sp.getPassword() + "AINR$channelNumber"
+                        sp.getPassword() +
+                                "AINR$channelNumber"
                     }
                     setup -> {
                         sp.getPassword() +
