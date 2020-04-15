@@ -133,4 +133,10 @@
     <string name="tank_full">Tankki täynnä \u0020</string>
     <string name="tank_normal">Tankki normaali \u0020</string>
 
+    <string name="alarm">Hälytys</string>
+
+    <string name="temp_threshold">Lämpötila:</string>
+    <string name="pressure1_threshold">Paine 1:</string>
+    <string name="pressure2_threshold">Paine 2:</string>
+
 </resources>

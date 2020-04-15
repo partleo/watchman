@@ -150,4 +150,11 @@
     <string name="pressure1_en" translatable="false">PRESSURE 1:</string>
     <string name="pressure2_en" translatable="false">PRESSURE 2:</string>
 
+    <string name="alarm_en" translatable="false">Alarm</string>
+    <string name="alarm">Alarm</string>
+
+    <string name="temp_threshold">Temperature:</string>
+    <string name="pressure1_threshold">Pressure 1:</string>
+    <string name="pressure2_threshold">Pressure 2:</string>
+
 </resources>

@@ -13,7 +13,6 @@ import com.example.harmatek.MainActivity.Companion.MODIFY_PASSWORD_FRAGMENT_TAG
 import com.example.harmatek.MainActivity.Companion.SETUP_10_USER_NUMBER_FRAGMENT_TAG
 import com.example.harmatek.MainActivity.Companion.SETUP_AIN_NAME_FRAGMENT_TAG
 import com.example.harmatek.MainActivity.Companion.SET_RTU_TIME_FRAGMENT_TAG
-import com.example.harmatek.MainActivity.Companion.STATUS_FRAGMENT_TAG
 import com.example.harmatek.R
 import com.example.harmatek.cardrecyclerview.*
 import com.example.harmatek.fragments.settings_fragments.*
@@ -51,7 +50,6 @@ class MainFragment: Fragment(), CardClickListener {
     private fun inflateCardList(c: Context) {
         cardList = arrayListOf(
             Card(c.getString(R.string.card_text_1)),
-            Card(c.getString(R.string.card_text_2)),
             Card(c.getString(R.string.card_text_3)),
             Card(c.getString(R.string.card_text_4)),
             Card(c.getString(R.string.card_text_8))
@@ -61,10 +59,9 @@ class MainFragment: Fragment(), CardClickListener {
     override fun onCardClicked(holder: CardViewHolder, position: Int) {
         when (position) {
             0 -> setupFragment(ModifyPasswordFragment(), MODIFY_PASSWORD_FRAGMENT_TAG)
-            1 -> setupFragment(StatusFragment(), STATUS_FRAGMENT_TAG)
-            2 -> setupFragment(SetRTUTimeFragment(), SET_RTU_TIME_FRAGMENT_TAG)
-            3 -> setupFragment(Setup10UserNumberFragment(), SETUP_10_USER_NUMBER_FRAGMENT_TAG)
-            4 -> setupFragment(SetupAINNameFragment(), SETUP_AIN_NAME_FRAGMENT_TAG)
+            1 -> setupFragment(SetRTUTimeFragment(), SET_RTU_TIME_FRAGMENT_TAG)
+            2 -> setupFragment(Setup10UserNumberFragment(), SETUP_10_USER_NUMBER_FRAGMENT_TAG)
+            3 -> setupFragment(SetupAINNameFragment(), SETUP_AIN_NAME_FRAGMENT_TAG)
             else -> Log.d("sms", "Exception: Too many positions!!")
         }
     }

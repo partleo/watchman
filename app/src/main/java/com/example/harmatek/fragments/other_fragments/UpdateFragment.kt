@@ -104,6 +104,7 @@ class UpdateFragment: Fragment() {
             .replace(getString(R.string.temp_en).toRegex(), getString(R.string.temp))
             .replace(getString(R.string.pressure1_en).toRegex(), getString(R.string.pressure1))
             .replace(getString(R.string.pressure2_en).toRegex(), getString(R.string.pressure2))
+            .replace(getString(R.string.alarm_en).toRegex(), getString(R.string.alarm))
     }
 
     private fun TextView.getIcon() {

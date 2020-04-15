@@ -30,8 +30,11 @@ import android.text.SpannableStringBuilder
 import android.text.Spanned
 import com.example.harmatek.SharedPreferencesEditor.Companion.ARMED_STATUS
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1
+import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1_THRESHOLD
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2
+import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2_THRESHOLD
 import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE
+import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE_THRESHOLD
 import com.example.harmatek.SharedPreferencesEditor.Companion.WATER
 import com.example.harmatek.SharedPreferencesEditor.Companion.reportPhoneNumberList
 import com.example.harmatek.fragments.other_fragments.UpdateFragment
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
         const val UPDATE_FRAGMENT_TAG = "UpdateFragment"
         const val MAIN_FRAGMENT_TAG = "MainFragment"
         const val MODIFY_PASSWORD_FRAGMENT_TAG = "ModifyPasswordFragment"
-        const val STATUS_FRAGMENT_TAG = "StatusFragment"
+        //const val STATUS_FRAGMENT_TAG = "StatusFragment"
         const val SET_RTU_TIME_FRAGMENT_TAG = "SetRTUTimeFragment"
         const val SETUP_10_USER_NUMBER_FRAGMENT_TAG = "Setup10UserNumberFragment"
         //const val AUTHORITY_USER_NUMBER_FRAGMENT_TAG = "AuthorityUserNumberFragment"
@@ -299,7 +302,8 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
     }
 
     private fun String.containsWords(): Boolean {
-        return (contains(getString(R.string.normal_en)) || contains(getString(R.string.lower_en)) || contains(getString(R.string.higher_en)))
+        return (contains(getString(R.string.normal_en)) || contains(getString(R.string.lower_en))
+                || contains(getString(R.string.higher_en)) || contains(getString(R.string.alarm_en)))
     }
 
     private fun String.startsWithWords(): Boolean {
@@ -307,18 +311,66 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
                 || startsWith("T4:") || startsWith("T5:") || startsWith("T6:") || startsWith("T7:"))
     }
 
-    private fun modifyStatusText(s: String, mark: String, tag: String): String {
+    /*
+    private fun modifyStatusText(s: String, mark: String, tag: String, tag2: String): String {
         val text = s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
             .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
             .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
             .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
             .replace(",".toRegex(), mark)
             .replace(";".toRegex(), "")
-        if (s.containsWords()) {
-            val status = text.split(":")
+        val status = text.split(":")
+        if (s.containsWords() && s.contains("High")) {
+            sp.setStatus(status[1].replace(" ".toRegex(), "")
+                .replace(getString(R.string.lower_en).toRegex(), "L: ")
+                .replace(mark.toRegex(), "\n")
+                .replace("High".toRegex(), "H: "), tag2)
+        }
+        else if (s.containsWords()) {
             sp.setStatus(status[1], tag)
+
         }
         return text
+    }
+    */
+
+    private fun modifyStatusText(s: String, mark: String, tag: String, tag2: String): String {
+        var status = s.split(":")
+        return if (status[1].startsWith(getString(R.string.lower_en)) && s.contains("High")) {
+            val text = s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
+                .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
+                .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
+                .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
+                .replace(getString(R.string.lower_en).toRegex(), "L: ")
+                .replace("High".toRegex(), "H: ")
+                .replace(",".toRegex(), " ")
+                .replace(";".toRegex(), "")
+
+            sp.setStatus(status[1].replace(getString(R.string.lower_en).toRegex(), "L: ")
+                .replace(",".toRegex(), "\n")
+                .replace("High".toRegex(), "H: ")
+                .replace(";".toRegex(), ""), tag2)
+            return text
+        }
+        else if (s.containsWords()) {
+            val text = s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
+                .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
+                .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
+                .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
+                .replace(",".toRegex(), mark)
+                .replace(";".toRegex(), "")
+            status = text.split(":")
+            sp.setStatus(status[1], tag)
+            return text
+        }
+        else {
+            s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
+                .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
+                .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
+                .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
+                .replace(",".toRegex(), mark)
+                .replace(";".toRegex(), "")
+        }
     }
 
     private fun modifyStatusText(s: String, mark: String, tag: String, id: Int): String {
@@ -340,7 +392,7 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
         for (i in 0 until s.size) {
             when {
                 s[i].startsWith(getString(R.string.din0)) -> {
-                    s[i] = modifyStatusText(s[i], "", WATER)
+                    s[i] = modifyStatusText(s[i], "", WATER, "")
                     finishMessage = true
                 }
                 s[i].startsWith(getString(R.string.tank_full_en)) -> {
@@ -352,13 +404,13 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
                     sp.setStatus(getString(R.string.normal_en), WATER)
                 }
                 s[i].startsWith(getString(R.string.ain0)) -> {
-                    s[i] = modifyStatusText(s[i], celsius, TEMPERATURE)
+                    s[i] = modifyStatusText(s[i], celsius, TEMPERATURE, TEMPERATURE_THRESHOLD)
                 }
                 s[i].startsWith(getString(R.string.ain1)) -> {
-                    s[i] = modifyStatusText(s[i], bar, PRESSURE_1)
+                    s[i] = modifyStatusText(s[i], bar, PRESSURE_1, PRESSURE_1_THRESHOLD)
                 }
                 s[i].startsWith(getString(R.string.ain2)) -> {
-                    s[i] = modifyStatusText(s[i], bar, PRESSURE_2)
+                    s[i] = modifyStatusText(s[i], bar, PRESSURE_2, PRESSURE_2_THRESHOLD)
                     finishMessage = true
                 }
                 s[i].contains(getString(R.string.status_armed)) -> {

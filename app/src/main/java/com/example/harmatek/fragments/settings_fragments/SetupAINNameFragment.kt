@@ -1,6 +1,7 @@
 package com.example.harmatek.fragments.settings_fragments
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
@@ -14,6 +15,10 @@ import android.widget.*
 import com.example.harmatek.MainActivity
 import com.example.harmatek.R
 import com.example.harmatek.SharedPreferencesEditor
+import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1_THRESHOLD
+import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2_THRESHOLD
+import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE_THRESHOLD
+import com.example.harmatek.fragments.settings_fragments.Setup10UserNumberFragment.Companion.empty
 import kotlinx.android.synthetic.main.fragment_setup_ain_name.*
 
 
@@ -33,6 +38,9 @@ class SetupAINNameFragment: Fragment() {
     private var high = ""
 
     var seriesNumber: String = ""
+
+    private var sharedPreferences: SharedPreferences? = null
+    private lateinit var sharedPreferencesListener: SharedPreferences.OnSharedPreferenceChangeListener
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         v = inflater.inflate(R.layout.fragment_setup_ain_name, container, false)
@@ -65,12 +73,35 @@ class SetupAINNameFragment: Fragment() {
             override fun onNothingSelected(arg0: AdapterView<*>) {
             }
         }
+
+        createSharedPreferenceChangeListener()
+
+        temp_threshold_text.text = sp.getStatus(TEMPERATURE_THRESHOLD, empty)
+        pressure1_threshold_text.text = sp.getStatus(PRESSURE_1_THRESHOLD, empty)
+        pressure2_threshold_text.text = sp.getStatus(PRESSURE_2_THRESHOLD, empty)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        if (sharedPreferences != null) {
+            sharedPreferences!!.unregisterOnSharedPreferenceChangeListener(sharedPreferencesListener)
+        }
+    }
+
+    private fun createSharedPreferenceChangeListener() {
+        sharedPreferences = sp.sharedPreferences()
+        sharedPreferencesListener = SharedPreferences.OnSharedPreferenceChangeListener { shared, _ ->
+
+            temp_threshold_text.text = shared.getString(TEMPERATURE_THRESHOLD, empty)
+            pressure1_threshold_text.text = shared.getString(PRESSURE_1_THRESHOLD, empty)
+            pressure2_threshold_text.text = shared.getString(PRESSURE_2_THRESHOLD, empty)
+        }
+        sharedPreferences!!.registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
     private fun inflateDialog(setup: Boolean?) {
         low = threshold_low_edit_text.text.toString()
         high = threshold_high_edit_text.text.toString()
-
         if (setup != null) {
             if (validateForm(setup)) {
                 openDialog(seriesNumber, setup)
@@ -79,7 +110,6 @@ class SetupAINNameFragment: Fragment() {
         else {
             openDialog(seriesNumber, setup)
         }
-
     }
 
     private fun validateForm(setup: Boolean): Boolean {
@@ -110,8 +140,10 @@ class SetupAINNameFragment: Fragment() {
             if (m.checkPermissions(c)) {
                 message = when {
                     setup == null -> {
-                        sp.getPassword() +
-                                "AINR$channelNumber"
+                        "AIN0:Lower2,High5.60;\n" +
+                                "AIN1:Lower100,High102938;\n" +
+                                "AIN2:Lower0,High4.88;\n"
+                        //sp.getPassword() + "AINR$channelNumber"
                     }
                     setup -> {
                         sp.getPassword() +

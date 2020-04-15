@@ -29,6 +29,10 @@ class SharedPreferencesEditor {
         const val TIMER_REPORT_1 = "Timer1"
         const val TIMER_REPORT_2 = "Timer2"
 
+        const val TEMPERATURE_THRESHOLD = "TemperatureThreshold"
+        const val PRESSURE_1_THRESHOLD = "Pressure1Threshold"
+        const val PRESSURE_2_THRESHOLD = "Pressure2Threshold"
+
         val reportPhoneNumberList = listOf(
             FULL_SMS_REPORT_1,
             FULL_SMS_REPORT_2,
