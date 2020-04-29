@@ -71,6 +71,9 @@ class UpdateFragment: Fragment() {
         disarm_status_button.setOnClickListener {
             openDialog(7)
         }
+        query_status_button.setOnClickListener {
+            openDialog(4)
+        }
         setup_settings_button.setOnClickListener {
             if (sp.getMasterAccess()) {
                 setupFragment()

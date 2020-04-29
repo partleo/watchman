@@ -415,9 +415,11 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
                 }
                 s[i].contains(getString(R.string.status_armed)) -> {
                     sp.setStatus(getString(R.string.status_armed), ARMED_STATUS)
+                    s[i] = getString(R.string.status_armed)
                 }
                 s[i].contains(getString(R.string.status_disarmed)) -> {
                     sp.setStatus(getString(R.string.status_disarmed), ARMED_STATUS)
+                    s[i] = getString(R.string.status_disarmed)
                 }
                 s[i].startsWith(getString(R.string.temp_en)) -> {
                     s[i] = modifyStatusText(s[i], celsius, TEMPERATURE, R.string.temp)
