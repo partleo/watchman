@@ -71,9 +71,11 @@ class UpdateFragment: Fragment() {
         disarm_status_button.setOnClickListener {
             openDialog(7)
         }
+        /*
         query_status_button.setOnClickListener {
             openDialog(4)
         }
+        */
         setup_settings_button.setOnClickListener {
             if (sp.getMasterAccess()) {
                 setupFragment()
@@ -183,10 +185,7 @@ class UpdateFragment: Fragment() {
         if (m.checkPhoneNumber(sp)) {
             if (m.checkPermissions(c)) {
                 message = when (statusNumber) {
-                    4 -> {
-                        sp.getPassword() +
-                                "EE"
-                    }
+                    //4 -> { sp.getPassword() + "EE" }
                     5 -> {
                         sp.getPassword() +
                                 "DINE"

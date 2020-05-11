@@ -145,20 +145,20 @@
         android:gravity="center"
         >
 
-        <android.support.design.widget.FloatingActionButton
+        <!--android.support.design.widget.FloatingActionButton
             android:id="@+id/query_status_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:src="@drawable/harmatek_update"
             app:backgroundTint="@color/colorBackgroundCard"
-            />
+            /-->
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/arm_status_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="32dp"
             android:src="@drawable/harmatek_armed"
             app:backgroundTint="@color/colorGreen"
             />
@@ -167,7 +167,7 @@
             android:id="@+id/disarm_status_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="32dp"
             android:src="@drawable/harmatek_disarmed"
             app:backgroundTint="@color/colorRed"
             />
@@ -176,7 +176,7 @@
             android:id="@+id/setup_settings_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_margin="32dp"
             android:src="@drawable/harmatek_plus"
             />
 
