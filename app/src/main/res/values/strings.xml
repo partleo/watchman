@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Watchman</string>
     <string name="app_name_caps" translatable="false">WATCHMAN</string>
-    <string name="brand_name" translatable="false">HUUMtech®</string>
-    <string name="trademark" translatable="false">HUUMtech® is registered trademark of HarMaTek Oy.\n©2020 HarMaTek Oy.</string>
+    <string name="brand_name" translatable="false">HarMaTek</string><!--HUUMtech®-->
+    <string name="trademark" translatable="false">©2020 HarMaTek Oy.</string>
     <string name="no_permissions">No permission for sending SMS!</string>
     <string name="no_phone_number">No phone number!</string>
     <string name="sms_sent">SMS successfully sent</string>
@@ -90,12 +90,17 @@
     <string name="status_armed" translatable="false">Armed</string>
     <string name="status_disarmed" translatable="false">Disarmed</string>
     <string name="din0">DIN0:</string>
+    <string name="din1">DIN1:</string>
+    <string name="din2">DIN2:</string>
+    <string name="din3">DIN3:</string>
     <string name="ain0">AIN0:</string>
     <string name="ain1">AIN1:</string>
     <string name="ain2">AIN2:</string>
     <string name="ain3">AIN3:</string>
     <string name="current_status">Current Status: %1$s</string>
     <string name="water">Water level: %1$s</string>
+    <string name="sensor1">Sensor 1: %1$s</string>
+    <string name="sensor2">Sensor 2: %1$s</string>
     <string name="temp">Temperature: %1$s</string>
     <string name="pressure1">Pressure 1: %1$s</string>
     <string name="pressure2">Pressure 2: %1$s</string>
@@ -107,10 +112,10 @@
     <string name="master_password">Enter master password</string>
     <string name="no_access_to_configuration">No permissions to use other settings!</string>
 
-    <string name="full_sms_report">Full SMS Report</string>
+    <string name="full_sms_report">Full SMS Report*</string>
     <string name="on_duty">On Duty</string>
     <string name="sms_alarms">SMS Alarms</string>
-    <string name="timer_report">Timer report</string>
+    <string name="timer_report">Timer report*</string>
 
     <string name="alarm_component">Alarm component</string>
     <string-array name="ain_array">
@@ -156,5 +161,10 @@
     <string name="temp_threshold">Temperature:</string>
     <string name="pressure1_threshold">Pressure 1:</string>
     <string name="pressure2_threshold">Pressure 2:</string>
+
+    <string name="s1" translatable="false">S1:</string>
+    <string name="s2" translatable="false">S2:</string>
+
+    <string name="sms_info_text">*24 SMS report messages sent per day</string>
 
 </resources>

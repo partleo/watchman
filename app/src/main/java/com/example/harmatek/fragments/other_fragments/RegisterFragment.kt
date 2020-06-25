@@ -13,6 +13,10 @@ import android.widget.*
 import com.example.harmatek.*
 import com.example.harmatek.MainActivity.Companion.UPDATE_FRAGMENT_TAG
 import kotlinx.android.synthetic.main.fragment_register.*
+import android.widget.Toast
+import android.widget.AdapterView
+
+
 
 
 class RegisterFragment: Fragment() {
@@ -48,6 +52,7 @@ class RegisterFragment: Fragment() {
         }
 
         setAdapter()
+        setOnItemSelectedListener()
 
         register_button.setOnClickListener {
             val password = password_input.text.toString()
@@ -65,6 +70,8 @@ class RegisterFragment: Fragment() {
                 sp.setPassword(password)
                 sp.setPhoneNumber(phoneNumber)
 
+                sp.setPasswordForDevice(phoneNumber, password)
+
                 val list = sp.getPhoneNumberList()
                 list.add(phoneNumber)
                 sp.setPhoneNumberList(list)
@@ -78,11 +85,12 @@ class RegisterFragment: Fragment() {
         }
         select_saved_number_checkbox.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
+                password_input.setText(sp.getPasswordOfDevice(spinner.selectedItem.toString()))
                 phone_number_input.visibility = EditText.GONE
                 spinner_background_layout.visibility = RelativeLayout.VISIBLE
-
             }
             else {
+                password_input.setText(sp.getPasswordOfDevice(phone_number_input.text.toString()))
                 spinner_background_layout.visibility = RelativeLayout.GONE
                 phone_number_input.visibility = EditText.VISIBLE
             }
@@ -110,6 +118,20 @@ class RegisterFragment: Fragment() {
     private fun setAdapter() {
         val adapter = ArrayAdapter(c, android.R.layout.simple_spinner_item, sp.getPhoneNumberList())
         spinner.adapter = adapter
+    }
+
+    private fun setOnItemSelectedListener() {
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(adapterView: AdapterView<*>, view: View?, position: Int, id: Long) {
+                if (position >= 0) {
+                    password_input.setText(sp.getPasswordOfDevice(adapterView.getItemAtPosition(position).toString()))
+                }
+            }
+
+            override fun onNothingSelected(adapterView: AdapterView<*>) {
+                return
+            }
+        }
     }
 
     override fun onStart() {

@@ -51,7 +51,7 @@ class Setup10UserNumberFragment: Fragment() {
     private lateinit var sharedPreferencesListener: SharedPreferences.OnSharedPreferenceChangeListener
 
     companion object {
-        const val empty = " --- "
+        const val empty = "---"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -67,12 +67,17 @@ class Setup10UserNumberFragment: Fragment() {
         toolbar.setTitle(R.string.card_text_4)
         m.toolbar(toolbar, 18f)
 
-        text_on_duty_1.setCompoundDrawablesWithIntrinsicBounds(null, null, getScaledDrawable(), null)
-        text_on_duty_2.setCompoundDrawablesWithIntrinsicBounds(null, null, getScaledDrawable(), null)
-
+        text_full_sms_report_2.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, getScaledDrawable(R.drawable.harmatek_alarm), null)
+        text_on_duty_1.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, getScaledDrawable(R.drawable.harmatek_phone), null)
+        text_on_duty_2.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, getScaledDrawable(R.drawable.harmatek_phone), null)
+        text_sms_alarms_1.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, null, null)
+        text_sms_alarms_2.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, null, null)
+        text_timer_report_1.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null, null, null)
+        //text_timer_report_2.setCompoundDrawablesWithIntrinsicBounds(getScaledDrawable(R.drawable.harmatek_sms), null,  null, null)
+        /*
         button_phone_number_full_sms_report_1.setOnClickListener {
             openDialog("0", text_phone_number_full_sms_report_1.text.toString())
-        }
+        }*/
         button_phone_number_full_sms_report_2.setOnClickListener {
             openDialog("1", text_phone_number_full_sms_report_2.text.toString())
         }
@@ -91,9 +96,11 @@ class Setup10UserNumberFragment: Fragment() {
         button_phone_number_timer_report_1.setOnClickListener {
             openDialog("6", text_phone_number_timer_report_1.text.toString())
         }
+        /*
         button_phone_number_timer_report_2.setOnClickListener {
             openDialog("7", text_phone_number_timer_report_2.text.toString())
         }
+        */
         inquiry_all_numbers_button.setOnClickListener {
             openDialog(null)
         }
@@ -102,14 +109,14 @@ class Setup10UserNumberFragment: Fragment() {
     override fun onStart() {
         super.onStart()
         createSharedPreferenceChangeListener()
-        text_phone_number_full_sms_report_1.text = sp.getStatus(FULL_SMS_REPORT_1, empty)
+        //text_phone_number_full_sms_report_1.text = sp.getStatus(FULL_SMS_REPORT_1, empty)
         text_phone_number_full_sms_report_2.text = sp.getStatus(FULL_SMS_REPORT_2, empty)
         text_phone_number_on_duty_1.text = sp.getStatus(ON_DUTY_1, empty)
         text_phone_number_on_duty_2.text = sp.getStatus(ON_DUTY_2, empty)
         text_phone_number_sms_alarms_1.text = sp.getStatus(SMS_ALARMS_1, empty)
         text_phone_number_sms_alarms_2.text = sp.getStatus(SMS_ALARMS_2, empty)
         text_phone_number_timer_report_1.text = sp.getStatus(TIMER_REPORT_1, empty)
-        text_phone_number_timer_report_2.text = sp.getStatus(TIMER_REPORT_2, empty)
+        //text_phone_number_timer_report_2.text = sp.getStatus(TIMER_REPORT_2, empty)
     }
 
     override fun onDestroyView() {
@@ -122,21 +129,21 @@ class Setup10UserNumberFragment: Fragment() {
     private fun createSharedPreferenceChangeListener() {
         sharedPreferences = sp.sharedPreferences()
         sharedPreferencesListener = SharedPreferences.OnSharedPreferenceChangeListener { shared, _ ->
-            text_phone_number_full_sms_report_1.text = shared.getString(FULL_SMS_REPORT_1, empty)
+            //text_phone_number_full_sms_report_1.text = shared.getString(FULL_SMS_REPORT_1, empty)
             text_phone_number_full_sms_report_2.text = shared.getString(FULL_SMS_REPORT_2, empty)
             text_phone_number_on_duty_1.text = shared.getString(ON_DUTY_1, empty)
             text_phone_number_on_duty_2.text = shared.getString(ON_DUTY_2, empty)
             text_phone_number_sms_alarms_1.text = shared.getString(SMS_ALARMS_1, empty)
             text_phone_number_sms_alarms_2.text = shared.getString(SMS_ALARMS_2, empty)
             text_phone_number_timer_report_1.text = shared.getString(TIMER_REPORT_1, empty)
-            text_phone_number_timer_report_2.text = shared.getString(TIMER_REPORT_2, empty)
+            //text_phone_number_timer_report_2.text = shared.getString(TIMER_REPORT_2, empty)
         }
         sharedPreferences!!.registerOnSharedPreferenceChangeListener(sharedPreferencesListener)
     }
 
-    private fun getScaledDrawable(): BitmapDrawable {
+    private fun getScaledDrawable(id: Int): BitmapDrawable {
         val width = c.resources.displayMetrics.widthPixels
-        val drawable = ContextCompat.getDrawable(c, R.drawable.harmatek_phone)!!
+        val drawable = ContextCompat.getDrawable(c, id)!!
         val bitmap = Bitmap.createScaledBitmap((drawable as BitmapDrawable).bitmap, width/16, width/16, true)
         val picture = Picture()
         val canvas = picture.beginRecording(width/16,width/16)

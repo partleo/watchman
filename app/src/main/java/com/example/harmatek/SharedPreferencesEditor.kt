@@ -33,6 +33,9 @@ class SharedPreferencesEditor {
         const val PRESSURE_1_THRESHOLD = "Pressure1Threshold"
         const val PRESSURE_2_THRESHOLD = "Pressure2Threshold"
 
+        const val SENSOR_1 = "Sensor1"
+        const val SENSOR_2 = "Sensor2"
+
         val reportPhoneNumberList = listOf(
             FULL_SMS_REPORT_1,
             FULL_SMS_REPORT_2,
@@ -58,7 +61,9 @@ class SharedPreferencesEditor {
     }
 
     fun setPassword(list: ArrayList<Any>) {
-        sharedPreferences.edit().putString(PASSWORD, list[1] as String).apply()
+        val password = list[1] as String
+        setPassword(password)
+        setPasswordForDevice(getPhoneNumber(), password)
     }
 
     fun setPassword(password: String) {
@@ -83,7 +88,7 @@ class SharedPreferencesEditor {
     }
 
     fun getPhoneNumberList(): ArrayList<String> {
-        val set = sharedPreferences.getStringSet(PHONE_NUMBER_LIST, setOf())
+        val set = sharedPreferences.getStringSet(PHONE_NUMBER_LIST, setOf()) as MutableCollection<String>
         return ArrayList(set)
     }
 
@@ -106,6 +111,14 @@ class SharedPreferencesEditor {
         else {
             Toast.makeText(c, c.getText(R.string.not_phone_number), Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun setPasswordForDevice(phoneNumber: String, password: String) {
+        sharedPreferences.edit().putString(phoneNumber, password).apply()
+    }
+
+    fun getPasswordOfDevice(phoneNumber: String): String {
+        return sharedPreferences.getString(phoneNumber, "") as String
     }
 
     fun setStatus(status: String, key: String) {

@@ -84,12 +84,17 @@
     <string name="disarmed">Pois päältä</string>
 
     <string name="din0">DIN0:</string>
+    <string name="din1">DIN1:</string>
+    <string name="din2">DIN2:</string>
+    <string name="din3">DIN3:</string>
     <string name="ain0">AIN0:</string>
     <string name="ain1">AIN1:</string>
     <string name="ain2">AIN2:</string>
     <string name="ain3">AIN3:</string>
     <string name="current_status">Nykyinen tila: %1$s</string>
     <string name="water">Veden korkeus: %1$s</string>
+    <string name="sensor1">Sensori 1: %1$s</string>
+    <string name="sensor2">Sensori 2: %1$s</string>
     <string name="temp">Lämpötila: %1$s</string>
     <string name="pressure1">Paine 1: %1$s</string>
     <string name="pressure2">Paine 2: %1$s</string>
@@ -101,10 +106,10 @@
     <string name="master_password">Anna pääkäyttäjän salasana</string>
     <string name="no_access_to_configuration">Ei käyttöoikeuksia muihin asetuksiin!</string>
 
-    <string name="full_sms_report">Täysi raportointi</string>
+    <string name="full_sms_report">Täysi raportointi*</string>
     <string name="on_duty">Päivystäjä</string>
     <string name="sms_alarms">Hälytykset</string>
-    <string name="timer_report">Ajastettu raportti</string>
+    <string name="timer_report">Ajastettu raportti*</string>
 
     <string name="alarm_component">Hälytyskomponentti</string>
     <string-array name="ain_array">
@@ -138,5 +143,7 @@
     <string name="temp_threshold">Lämpötila:</string>
     <string name="pressure1_threshold">Paine 1:</string>
     <string name="pressure2_threshold">Paine 2:</string>
+
+    <string name="sms_info_text">*lähettää tekstiviestejä 24 kpl/vrk</string>
 
 </resources>

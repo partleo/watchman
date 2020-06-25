@@ -33,6 +33,8 @@ import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1_THRESHOLD
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2_THRESHOLD
+import com.example.harmatek.SharedPreferencesEditor.Companion.SENSOR_1
+import com.example.harmatek.SharedPreferencesEditor.Companion.SENSOR_2
 import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE
 import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE_THRESHOLD
 import com.example.harmatek.SharedPreferencesEditor.Companion.WATER
@@ -353,7 +355,9 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
             return text
         }
         else if (s.containsWords()) {
-            val text = s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
+            val text = s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, "")) //obsolete not in use anymore
+                .replace(getString(R.string.din2).toRegex(), getString(R.string.sensor1, "")) //replaced ones
+                .replace(getString(R.string.din3).toRegex(), getString(R.string.sensor2, "")) //replaced ones
                 .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
                 .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
                 .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
@@ -364,7 +368,9 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
             return text
         }
         else {
-            s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, ""))
+            s.replace(getString(R.string.din0).toRegex(), getString(R.string.water, "")) //obsolete not in use anymore
+                .replace(getString(R.string.din2).toRegex(), getString(R.string.sensor1, "")) //replaced ones
+                .replace(getString(R.string.din3).toRegex(), getString(R.string.sensor2, "")) //replaced ones
                 .replace(getString(R.string.ain0).toRegex(), getString(R.string.temp, ""))
                 .replace(getString(R.string.ain1).toRegex(), getString(R.string.pressure1, ""))
                 .replace(getString(R.string.ain2).toRegex(), getString(R.string.pressure2, ""))
@@ -379,9 +385,15 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
         val status = when {
             list[1].contains(getString(R.string.lower_en).toUpperCase(Locale.getDefault())) -> getString(R.string.lower_en)
             list[1].contains(getString(R.string.higher_en).toUpperCase(Locale.getDefault())) -> getString(R.string.higher_en)
+            list[1].contains(getString(R.string.alarm_en)) -> getString(R.string.alarm_en)
             else -> getString(R.string.normal_en)
         }
-        sp.setStatus("${value[0]}$mark$status", tag)
+        if (mark == "") {
+            sp.setStatus(status, tag)
+        }
+        else {
+            sp.setStatus("${value[0]}$mark$status", tag)
+        }
         return getString(id, status)
     }
 
@@ -391,8 +403,22 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
         val s = message.split("\n").toMutableList()
         for (i in 0 until s.size) {
             when {
+                /* obsolete
                 s[i].startsWith(getString(R.string.din0)) -> {
                     s[i] = modifyStatusText(s[i], "", WATER, "")
+                    finishMessage = true
+                }*/
+                s[i].startsWith(getString(R.string.din0)) -> {
+                    s[i] = ""
+                }
+                s[i].startsWith(getString(R.string.din1)) -> {
+                    s[i] = ""
+                }
+                s[i].startsWith(getString(R.string.din2)) -> {
+                    s[i] = modifyStatusText(s[i], "", SENSOR_1, "")
+                }
+                s[i].startsWith(getString(R.string.din3)) -> {
+                    s[i] = modifyStatusText(s[i], "", SENSOR_2, "")
                     finishMessage = true
                 }
                 s[i].startsWith(getString(R.string.tank_full_en)) -> {
@@ -421,6 +447,12 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
                     sp.setStatus(getString(R.string.status_disarmed), ARMED_STATUS)
                     s[i] = getString(R.string.status_disarmed)
                 }
+                s[i].startsWith(getString(R.string.s1)) -> {
+                    s[i] = modifyStatusText(s[i], "", SENSOR_1, R.string.sensor1)
+                }
+                s[i].startsWith(getString(R.string.s2)) -> {
+                    s[i] = modifyStatusText(s[i], "", SENSOR_2, R.string.sensor2)
+                }
                 s[i].startsWith(getString(R.string.temp_en)) -> {
                     s[i] = modifyStatusText(s[i], celsius, TEMPERATURE, R.string.temp)
                 }
@@ -440,7 +472,10 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
                     }
                     val number = s[i].split(":")
                     sp.setStatus(number[1], reportPhoneNumberList[i+startNumber])
-                    if (s[i].startsWith("T7:")) {
+                    if (s[i].startsWith("T0:")) {
+                        s[i] = ""
+                    }
+                    if (s[i].startsWith("T6:")) {
                         finishMessage = true
                     }
                 }
@@ -518,11 +553,14 @@ class MainActivity : AppCompatActivity(), SendSMSListener {
     }
 
     private fun TextView.changeBrandNameFont() {
+        typeface = Typeface.createFromAsset(context.assets, SYNE_BOLD)
+        /*
         val font = Typeface.createFromAsset(context.assets, SYNE_EXTRA)
         val font2 = Typeface.createFromAsset(context.assets, SYNE_BOLD)
         val ss = SpannableStringBuilder(text)
         ss.setSpan (CustomTypefaceSpan("", font), 0, 4, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         ss.setSpan (CustomTypefaceSpan("", font2), 4, 8, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         text = ss
+        */
     }
 }

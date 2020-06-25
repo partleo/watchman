@@ -82,12 +82,15 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun TextView.changeBrandNameFont() {
+        typeface = Typeface.createFromAsset(context.assets, SYNE_BOLD)
+        /*
         val font = Typeface.createFromAsset(context.assets, SYNE_EXTRA)
         val font2 = Typeface.createFromAsset(context.assets, SYNE_BOLD)
         val ss = SpannableStringBuilder(text.substring(0, text.length - 1))
         ss.setSpan (CustomTypefaceSpan("", font), 0, 4, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         ss.setSpan (CustomTypefaceSpan("", font2), 4, 8, Spanned.SPAN_EXCLUSIVE_INCLUSIVE)
         text = ss
+        */
     }
 
     private fun TextView.changeAppNameFont() {

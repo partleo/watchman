@@ -23,6 +23,8 @@ import com.example.harmatek.SharedPreferencesEditor
 import com.example.harmatek.SharedPreferencesEditor.Companion.ARMED_STATUS
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_1
 import com.example.harmatek.SharedPreferencesEditor.Companion.PRESSURE_2
+import com.example.harmatek.SharedPreferencesEditor.Companion.SENSOR_1
+import com.example.harmatek.SharedPreferencesEditor.Companion.SENSOR_2
 import com.example.harmatek.SharedPreferencesEditor.Companion.TEMPERATURE
 import com.example.harmatek.SharedPreferencesEditor.Companion.WATER
 import com.example.harmatek.fragments.settings_fragments.Setup10UserNumberFragment.Companion.empty
@@ -88,7 +90,9 @@ class UpdateFragment: Fragment() {
 
         armed_status.text = sp.getStatus(ARMED_STATUS, c.getString(R.string.no_status)).translate()
         armed_status.getIcon()
-        water.text = getString(R.string.water, sp.getStatus(WATER, empty)).translate()
+        //water.text = getString(R.string.water, sp.getStatus(WATER, empty)).translate()
+        sensor_1.text = getString(R.string.sensor1, sp.getStatus(SENSOR_1, empty)).translate()
+        sensor_2.text = getString(R.string.sensor2, sp.getStatus(SENSOR_2, empty)).translate()
         temperature.text = getString(R.string.temp, sp.getStatus(TEMPERATURE, empty)).translate()
         pressure_1.text = getString(R.string.pressure1, sp.getStatus(PRESSURE_1, empty)).translate()
         pressure_2.text = getString(R.string.pressure2, sp.getStatus(PRESSURE_2, empty)).translate()
@@ -141,7 +145,9 @@ class UpdateFragment: Fragment() {
         sharedPreferencesListener = SharedPreferences.OnSharedPreferenceChangeListener { shared, _ ->
             armed_status.text = shared.getString(ARMED_STATUS, c.getString(R.string.no_status))!!.translate()
             armed_status.getIcon()
-            water.text = getString(R.string.water, shared.getString(WATER, empty)).translate()
+            //water.text = getString(R.string.water, shared.getString(WATER, empty)).translate()
+            sensor_1.text = getString(R.string.sensor1, shared.getString(SENSOR_1, empty)).translate()
+            sensor_2.text = getString(R.string.sensor2, shared.getString(SENSOR_2, empty)).translate()
             temperature.text = getString(R.string.temp, shared.getString(TEMPERATURE, empty)).translate()
             pressure_1.text = getString(R.string.pressure1, shared.getString(PRESSURE_1, empty)).translate()
             pressure_2.text = getString(R.string.pressure2, shared.getString(PRESSURE_2, empty)).translate()
