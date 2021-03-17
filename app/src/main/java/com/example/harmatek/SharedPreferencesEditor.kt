@@ -88,7 +88,7 @@ class SharedPreferencesEditor {
     }
 
     fun getPhoneNumberList(): ArrayList<String> {
-        val set = sharedPreferences.getStringSet(PHONE_NUMBER_LIST, setOf()) as MutableCollection<String>
+        val set = sharedPreferences.getStringSet(PHONE_NUMBER_LIST, setOf())
         return ArrayList(set)
     }
 
